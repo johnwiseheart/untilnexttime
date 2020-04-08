@@ -1,0 +1,11 @@
+{
+  "name": "untilnexttime",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:johnwiseheart/untilnexttime.git",
+  "author": "John Wiseheart <johnwiseheart@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  }
+}
