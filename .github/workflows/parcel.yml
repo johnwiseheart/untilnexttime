@@ -30,7 +30,9 @@ jobs:
     - name: Build
       run: parcel build index.html
 
-    - name: GitHub Pages
-      uses: crazy-max/ghaction-github-pages@v1.3.0
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@3.4.6
       with:
-        build_dir: .
+        BRANCH: gh-pages # The branch the action should deploy to.
+        FOLDER: dist
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
