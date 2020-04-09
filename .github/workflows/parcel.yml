@@ -28,7 +28,7 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: Build
-      run: parcel build index.html
+      run: parcel build index.html --public-url ./
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@3.4.6
