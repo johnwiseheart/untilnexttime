@@ -1,0 +1,39 @@
+@import "./node_modules/normalize.css/normalize.css";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #e7deff;
+
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.inner {
+  text-align: center;
+}
+
+div.countdown-text {
+  text-transform: uppercase;
+  color: #999;
+  font-size: 0.8em;
+}
+
+div#days {
+  margin: 0 0 10px;
+  font-family: "Fredericka the Great", cursive;
+  font-size: 3em;
+}
+
+div#days div {
+  display: inline;
+  margin: 10px;
+}
+
+#days {
+}

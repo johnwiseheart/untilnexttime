@@ -2,28 +2,49 @@ const DATE_TO_COUNTDOWN_TO = "May 23, 2020";
 
 const countDownDate = new Date(DATE_TO_COUNTDOWN_TO).getTime();
 
-document.getElementById("countdownDate").innerHTML = DATE_TO_COUNTDOWN_TO;
-const countdownInterval = setInterval(() => {
+document.getElementById("countdown-date").innerHTML = DATE_TO_COUNTDOWN_TO;
+
+const plural = (word: string, num: number) => {
+  if (num === 1) {
+    return word;
+  }
+
+  return `${word}s`;
+};
+
+let countdownInterval;
+const updateCounter = () => {
   const now = new Date().getTime();
 
   const distance = countDownDate - now;
 
-  const weeks = (distance / (1000 * 60 * 60 * 24 * 7)).toFixed(2);
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   const hours = Math.floor(
     (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
   );
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  document.getElementById(
-    "demo"
-  ).innerHTML = `${days} days ${hours} hours ${minutes} minutes and ${seconds} seconds`;
+  const countdownElement = document.getElementById("days");
 
-  document.getElementById("weeks").innerHTML = `${weeks} weeks`;
+  countdownElement.innerHTML = "";
+
+  const daysElement = document.createElement("div");
+  daysElement.innerHTML = `${days} ${plural("day", days)}`;
+  countdownElement.append(daysElement);
+
+  const hoursElement = document.createElement("div");
+  hoursElement.innerHTML = `${hours} ${plural("hour", hours)}`;
+  countdownElement.append(hoursElement);
+
+  const minsElement = document.createElement("div");
+  minsElement.innerHTML = `${minutes} ${plural("minute", minutes)}`;
+  countdownElement.append(minsElement);
 
   if (distance < 0) {
     clearInterval(countdownInterval);
-    document.getElementById("demo").innerHTML = "It's here!";
+    countdownElement.innerHTML = "It's here!";
   }
-}, 1000);
+};
+
+countdownInterval = setInterval(updateCounter, 1000);
+updateCounter();
