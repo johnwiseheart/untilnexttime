@@ -1,4 +1,4 @@
-const DATE_TO_COUNTDOWN_TO = "February 12, 2021 12:00 pm";
+const DATE_TO_COUNTDOWN_TO = "November 19, 2021 1:12 pm";
 
 const countDownDate = new Date(DATE_TO_COUNTDOWN_TO).getTime();
 
